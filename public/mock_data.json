@@ -1,0 +1,139 @@
+{
+  "stats": {
+    "total_users": 1250,
+    "active_technicians": 85,
+    "jobs_today": 42,
+    "jobs_failed_match": 3,
+    "pending_disputes": 5,
+    "pending_verifications": 12
+  },
+  "users": [
+    {
+      "id": "u_101",
+      "email": "alice@example.com",
+      "role": "CUSTOMER",
+      "is_active": true,
+      "created_at": "2023-11-15T08:30:00Z"
+    },
+    {
+      "id": "u_102",
+      "email": "bob.tech@example.com",
+      "role": "TECHNICIAN",
+      "is_active": true,
+      "created_at": "2023-11-16T09:00:00Z"
+    },
+    {
+      "id": "u_103",
+      "email": "charlie@example.com",
+      "role": "CUSTOMER",
+      "is_active": false,
+      "created_at": "2023-12-01T14:20:00Z"
+    },
+    {
+      "id": "u_admin",
+      "email": "admin@fixmate.com",
+      "role": "ADMIN",
+      "is_active": true,
+      "created_at": "2023-10-01T00:00:00Z"
+    }
+  ],
+  "technicians": [
+    {
+      "id": "t_201",
+      "user_id": "u_102",
+      "name": "Bob The Builder",
+      "status": "VERIFIED",
+      "rating": 4.8,
+      "total_reviews": 156,
+      "specialties": ["Plumbing", "Electrical"],
+      "location": "Downtown"
+    },
+    {
+      "id": "t_202",
+      "user_id": "u_205",
+      "name": "Sam Repair",
+      "status": "PENDING",
+      "rating": 0,
+      "total_reviews": 0,
+      "specialties": ["HVAC"],
+      "location": "Uptown"
+    }
+  ],
+  "services": [
+    {
+      "id": "s_301",
+      "name": "AC Cleaning",
+      "category": "HVAC",
+      "base_price": 50.00,
+      "is_active": true
+    },
+    {
+      "id": "s_302",
+      "name": "Leaky Faucet Repair",
+      "category": "Plumbing",
+      "base_price": 35.00,
+      "is_active": true
+    },
+    {
+      "id": "s_303",
+      "name": "Full House Cleaning",
+      "category": "Cleaning",
+      "base_price": 80.00,
+      "is_active": false
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j_401",
+      "customer_id": "u_101",
+      "technician_id": "t_201",
+      "service_id": "s_302",
+      "status": "COMPLETED",
+      "price": 45.00,
+      "location": "123 Main St",
+      "created_at": "2024-01-02T10:00:00Z",
+      "completed_at": "2024-01-02T11:30:00Z"
+    },
+    {
+      "id": "j_402",
+      "customer_id": "u_103",
+      "technician_id": null,
+      "service_id": "s_301",
+      "status": "REQUESTED",
+      "price": 50.00,
+      "location": "456 Elm St",
+      "created_at": "2024-01-04T08:15:00Z"
+    },
+    {
+      "id": "j_403",
+      "customer_id": "u_101",
+      "technician_id": "t_201",
+      "service_id": "s_301",
+      "status": "IN_PROGRESS",
+      "price": 55.00,
+      "location": "123 Main St",
+      "created_at": "2024-01-04T13:00:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "p_501",
+      "job_id": "j_401",
+      "amount": 45.00,
+      "platform_fee": 4.50,
+      "technician_earnings": 40.50,
+      "status": "COMPLETED",
+      "created_at": "2024-01-02T11:30:05Z"
+    }
+  ],
+  "disputes": [
+     {
+      "id": "d_601",
+      "job_id": "j_401",
+      "created_by_id": "u_101",
+      "reason": "Technician left a mess",
+      "status": "OPEN",
+      "created_at": "2024-01-02T12:00:00Z"
+    }
+  ]
+}
